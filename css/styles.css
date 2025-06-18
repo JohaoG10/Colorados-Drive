@@ -1,0 +1,889 @@
+/* =========================================================
+   1) Variables de color
+   ========================================================= */
+:root {
+  --color-rojo: #c01c1c;
+  --color-rojo-fondo: #8b0000; /* rojo oscuro para testimonios, banner y footer */
+  --color-gris-claro: #f8f9fa;
+  --color-blanco: #ffffff;
+  --color-negro: #000000;
+}
+/* Hero: estilo del slogan */
+.hero-slogan {
+  font-size: 2.5rem;
+  color: var(--color-rojo);
+  font-weight: 700;
+  max-width: 700px;
+  margin-top: 1rem;
+}
+
+/* Hero-content ancho máximo */
+.hero-content {
+  max-width: 800px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 992px) {
+  .hero-slogan {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero-slogan {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================================================
+   2) Reset y tipografía base
+   ========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 70px; /* Ajusta si cambias la altura real del navbar */
+  background-color: var(--color-blanco);
+}
+
+/* =========================================================
+   3) Estilos del Navbar (mejorados)
+   ========================================================= */
+
+/* Navbar transparente (solo en index.html) */
+.navbar-transparent {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  padding: 1rem 1rem;
+}
+
+/* Navbar sólido de fondo blanco + sombra */
+.navbar-solid {
+  background-color: var(--color-blanco) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  padding: 0.75rem 1rem;
+}
+
+/* Logo en el Hero (más grande) */
+.logo-hero {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Logo pequeño para cursos/contacto */
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Texto “Colorados Drive” junto al logo (en cursos y contacto) */
+.text-logo {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-rojo);
+}
+
+/* Ícono “hamburger” (invertido para verse blanco sobre fondo transparente) */
+.navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+/* ===== Enlaces del menú: más peso, spacing y efecto degradado ===== */
+.custom-navbar .nav-link {
+  position: relative;                /* para la barra animada */
+  font-weight: 700;                  /* negrita */
+  letter-spacing: 0.5px;             /* separación entre letras */
+  padding: 0.5rem 1rem;              /* respiración interna */
+  transition: color 0.3s ease;
+  color: var(--color-rojo);
+}
+
+/* Subrayado degradado que crece al hover / active */
+.custom-navbar .nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-rojo), var(--color-rojo-fondo));
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.custom-navbar .nav-link:hover::before,
+.custom-navbar .nav-link.active::before {
+  width: 100%;
+  left: 0;
+}
+
+/* Color al pasar el ratón y al link activo */
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: var(--color-negro) !important;
+}
+
+/* Enlaces sobre hero (transparente) mantienen blanco */
+.custom-navbar.navbar-transparent .nav-link {
+  color: var(--color-blanco);
+}
+.custom-navbar.navbar-transparent .nav-link:hover {
+  color: #ddd !important;
+}
+
+/* Responsivo: ajustes de padding para pantallas pequeñas */
+@media (max-width: 992px) {
+  .custom-navbar .nav-link {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.custom-navbar.navbar-transparent {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-navbar.navbar-solid {
+  background-color: var(--color-blanco) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* =========================================================
+   4) Estilos del Hero (index.html) — ALINEADO A LA IZQUIERDA
+   ========================================================= */
+#inicio {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;      /* alinea arriba por defecto */
+  justify-content: flex-start;  /* asegura alineación a la izquierda */
+  padding-top: 4rem;            /* mueve la sección más abajo */
+  padding-left: 3rem;           /* mueve la sección más a la izquierda */
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-bg .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#inicio .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin-left: -30px;   /* Más a la izquierda */
+  margin-top: 80px;     /* Más hacia abajo */
+}
+
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.hero-text {
+  font-size: 1.25rem;
+  max-width: 650px;
+  margin-bottom: 1.5rem;
+}
+
+.btn-lg.btn-primary {
+  background-color: var(--color-rojo);
+  border-color: var(--color-rojo);
+}
+
+.btn-lg.btn-primary:hover {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+}
+
+.btn-lg.btn-outline-light {
+  border-color: var(--color-blanco);
+}
+
+.img-car-hero {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-text {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-text {
+    font-size: 1rem;
+  }
+  .btn-lg {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+}
+
+
+
+/* =========================================================
+   SECCIÓN “Quiénes Somos” + Visión/Misión (dos columnas)
+   ========================================================= */
+
+.quienessomos-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10rem;        /* separación ampliada */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Columnas fijas a 48% cada una */
+.col-izq,
+.col-der {
+  flex: 0 0 48%;
+}
+/* Títulos centrados en su columna */
+.quienessomos-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--color-negro);
+}
+
+/* Imagen de Quiénes Somos */
+.col-izq img {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Lista de puntos */
+.quienes-list li {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+/* Icono de check */
+.icono-check {
+  color: var(--color-rojo);
+  margin-right: 0.5rem;
+}
+
+/* Botón dentro de columna izquierda */
+.col-izq .btn {
+  margin-top: 1rem;
+}
+
+/* Contenedor VM */
+.vm-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Tarjetas VM */
+.vm-card {
+  background-color: #781c1c; /* rojo elegante más sobrio */
+  color: #fff;
+  border-left: 4px solid #fff;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.vm-card:hover {
+  transform: translateY(-4px);
+  background-color: #5c1515; /* tono más oscuro al hacer hover */
+}
+
+/* Título VM */
+.vm-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+/* Texto VM centrado con color blanco */
+.vm-text {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Responsive a columna única */
+@media (max-width: 991px) {
+  .quienessomos-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .col-izq, .col-der {
+    flex: 1 0 auto;
+  }
+  /* Centrar títulos y textos en móvil */
+  .quienessomos-container h2,
+  .vm-text {
+    text-align: center;
+  }
+}
+
+
+
+/* =========================================================
+   6) Sección “Testimonios”
+   ========================================================= */
+.section-testimonios {
+  background-color: var(--color-rojo-fondo);
+  padding: 4rem 0;
+}
+.section-testimonios h2 {
+  color: var(--color-blanco);
+}
+#carouselReviews .carousel-inner .row {
+  justify-content: center;
+}
+#carouselReviews .card {
+  background-color: var(--color-blanco);
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+#carouselReviews .card-body {
+  padding: 1.5rem;
+}
+#carouselReviews .card-body img.rounded-circle {
+  object-fit: cover;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 1.5rem 1.5rem;
+  filter: invert(1);
+}
+
+/* =========================================================
+   7) Footer
+   ========================================================= */
+.bg-rojo-fondo {
+  background-color: var(--color-rojo-fondo) !important;
+}
+footer.text-white small,
+footer.text-white a {
+  color: var(--color-blanco) !important;
+  text-decoration: none;
+}
+
+/* =========================================================
+   8) Botón flotante de WhatsApp
+   ========================================================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #25d366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 60px;
+  z-index: 9999;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   9) Ajustes responsivos
+   ========================================================= */
+@media (max-width: 992px) {
+  #inicio h1 {
+    font-size: 2.5rem;
+  }
+  #inicio p.lead,
+  .hero-text {
+    font-size: 1rem;
+  }
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+  }
+  .custom-navbar .nav-link {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+  #carouselReviews .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (max-width: 576px) {
+  #inicio h1 {
+    font-size: 2rem;
+  }
+  #inicio p.lead,
+  .hero-text {
+    font-size: 0.9rem;
+  }
+  .btn-primary,
+  .btn-outline-light {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  .logo-hero {
+    width: 100px;
+  }
+  #carouselReviews .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+  10) Personalizaciones para cursos.html
+   ========================================================= */
+.section-banner-cursos {
+  background-color: var(--color-rojo-fondo);
+}
+.section-banner-cursos h1,
+.section-banner-cursos p {
+  color: var(--color-blanco);
+}
+
+.curso-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  background-color: var(--color-blanco);
+}
+.curso-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.curso-img,
+.curso-card .ratio {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
+}
+.curso-card .ratio:hover {
+  filter: brightness(1);
+}
+
+.price-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  z-index: 10;
+}
+.price-badge .iva {
+  font-size: 0.7rem;
+  vertical-align: super;
+}
+
+.curso-title {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.curso-card .card-body .card-text {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.btn-rojo {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-rojo);
+  box-shadow: 0 4px 15px rgba(192, 28, 28, 0.4);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-rojo:hover {
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  box-shadow: 0 6px 20px rgba(192, 28, 28, 0.6);
+}
+
+#cursos {
+  margin-top: 0; /* restaurado para no tapar el header */
+}
+
+@media (max-width: 992px) {
+  .curso-img,
+  .curso-card .ratio {
+    height: 160px;
+  }
+}
+@media (max-width: 576px) {
+  .curso-img,
+  .curso-card .ratio {
+    height: 140px;
+  }
+}
+
+/* Modal de inscripción */
+.modal-content {
+  border-radius: 1rem;
+}
+.modal-header {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+.modal-body {
+  padding: 2rem;
+}
+#form-inscripcion-elegante input[type="file"] {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 0.3rem;
+  transition: border-color 0.3s ease;
+}
+#form-inscripcion-elegante input[type="file"]:focus {
+  outline: none;
+  border-color: var(--color-rojo);
+  box-shadow: 0 0 0 0.2rem rgba(192,28,28,0.25);
+}
+
+/* =========================================================
+   11) Requisitos
+   ========================================================= */
+.requisito-item .icono-check {
+  color: var(--color-rojo);
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   12) Personalizaciones para contacto.html
+/* ========================================================= */
+.bg-gris-claro {
+  background-color: var(--color-gris-claro);
+}
+
+.contacto-card {
+  background-color: #781c1c;        /* Fondo rojo elegante */
+  color: #fff;                      /* Texto blanco para contraste */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.contacto-card .card-title {
+  font-size: 1.5rem;
+  color: #fff;                      /* Título en blanco */
+}
+
+.icono-rojo {
+  color: #fff;                      /* Íconos blancos sobre rojo */
+  margin-right: 0.5rem;
+}
+
+.contacto-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #fff;                      /* Asegura texto blanco */
+}
+
+.contacto-card .card-footer {
+  padding-top: 0.75rem;
+}
+
+.social-link {
+  font-size: 1.25rem;
+  color: #fff;                      /* Íconos de redes en blanco */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+  color: #ffb3b3;                   /* Tono claro al hacer hover */
+  transform: translateY(-3px);
+}
+
+/* ============================
+/* ============================
+/* =================================================
+   Ajustes z-index para banner Psicosensométrico
+   ================================================ */
+
+.psico-hero {
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+
+  /* Aquí se carga la imagen de fondo */
+  background: url('../img/psico-hero.jpg') center center / cover no-repeat;
+}
+
+.psico-hero .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.psico-hero > .text-center {
+  z-index: 2;
+}
+
+
+/* ============================
+   Psicosensométrico: tarjetas
+   ============================ */
+.psico-card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.psico-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.psico-card-header {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 1rem 0;
+}
+.psico-card-header i {
+  font-size: 1.75rem;
+}
+.psico-card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+.psico-card-body h5 {
+  margin-bottom: 0.5rem;
+  color: var(--color-negro);
+}
+.psico-card-body p {
+  margin-bottom: 0;
+}
+/* Hero: slogan centrado sobre fondo blanco */
+.hero-slogan {
+  display: inline-block;            /* para que el fondo ajuste su ancho al texto */
+  background-color: var(--color-blanco);
+  color: var(--color-rojo);
+  font-size: 2.5rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  max-width: 90%;                   /* no desborde en móvil */
+  line-height: 1.2;
+}
+
+/* Responsivo: ajustar tamaño */
+@media (max-width: 992px) {
+  .hero-slogan {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 576px) {
+  .hero-slogan {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+/* =========================
+   CHAT WIDGET ELEGANTE CON SCROLL FUNCIONAL
+   ========================= */
+#chat-widget {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 90px;
+  width: 320px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* BOTÓN FLOTANTE */
+#chat-toggle {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: 2px solid #000;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+#chat-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* CUERPO DEL WIDGET */
+#chat-body {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  background-color: var(--color-blanco);
+  border: 3px solid #000;
+  box-shadow:
+    0 0 0 3px var(--color-rojo),
+    0 8px 24px rgba(0,0,0,0.2);
+
+  overflow-y: auto;             /* Scroll directo en el body */
+  overscroll-behavior: contain;
+}
+#chat-body.active {
+  display: flex;
+}
+
+/* BOTÓN CERRAR */
+#chat-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+#chat-close:hover {
+  color: #000;
+}
+
+/* HISTORIAL DE MENSAJES */
+#chat-log {
+  padding: 0.5rem 1rem;
+  background: #fff;
+}
+
+/* QUICK REPLIES */
+#quick-replies {
+  flex-shrink: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1rem 0.5rem;
+}
+#quick-replies button {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+#quick-replies button:hover {
+  background-color: #a01818;
+  transform: translateY(-2px);
+}
+
+/* ÁREA DE INPUT */
+#chat-input-area {
+  flex-shrink: 0;
+  display: flex;
+  border-top: 1px solid #eee;
+}
+#chat-input {
+  flex: 1;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+#chat-input:focus {
+  outline: none;
+}
+#chat-send {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: 2px solid #000;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+#chat-send:hover {
+  background-color: #a01818;
+  transform: translateY(-2px);
+}
+
+/* MENSAJES */
+.chat-message {
+  margin: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-width: 80%;
+}
+.chat-message.bot {
+  background-color: #f1f1f1;
+  align-self: flex-start;
+}
+.chat-message.user {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  align-self: flex-end;
+}
