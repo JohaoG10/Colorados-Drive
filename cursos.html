@@ -1,3 +1,4 @@
+<!-- cursos.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,23 +26,26 @@
 
 <body>
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg custom-navbar navbar-solid py-3 shadow-sm">
+<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="img/logo.png" class="logo-img" alt="Logo Colorados Drive" />
-      <span class="ms-2 text-logo">Colorados Drive</span>
+    <a class="navbar-brand" href="index.html">
+      <img src="img/logo.png" alt="Colorados Drive" class="navbar-logo">
     </a>
     <button class="navbar-toggler border-0" type="button"
-            data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item mx-2"><a class="nav-link" href="index.html">Inicio</a></li>
-        <li class="nav-item mx-2"><a class="nav-link active" href="cursos.html">Cursos</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="psicosensometrico.html">Examen Psicosensométrico</a></li>
-        <li class="nav-item mx-2"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
-      </ul>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
+  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+  <li class="nav-item"><a class="nav-link" href="cursos.html">Cursos</a></li>
+  <li class="nav-item"><a class="nav-link" href="psicosensometrico.html">Psicosensométrico</a></li>
+  <li class="nav-item"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
+</ul>
+
     </div>
   </div>
 </nav>
@@ -137,38 +141,45 @@
       <div class="mt-5">
         <h2 class="text-center fw-bold text-rojo mb-4">Requisitos para Inscripción</h2>
         <ul class="list-group list-group-flush col-md-8 mx-auto">
-          <li class="list-group-item requisito-item">
-            <i class="fas fa-check-circle icono-check me-2"></i> Cédula de ciudadanía
-          </li>
-          <li class="list-group-item requisito-item">
-            <i class="fas fa-check-circle icono-check me-2"></i> Papeleta de votación
-          </li>
-          <li class="list-group-item requisito-item">
-            <i class="fas fa-check-circle icono-check me-2"></i> Certificado de tipo de sangre (Cruz Roja)
-          </li>
-          <li class="list-group-item requisito-item">
-            <i class="fas fa-check-circle icono-check me-2"></i> Dos fotografías tamaño carnet
-          </li>
-        </ul>
+  <li class="list-group-item requisito-item">
+    <i class="fas fa-check-circle icono-check me-2"></i> Cédula de ciudadanía
+  </li>
+  <li class="list-group-item requisito-item">
+    <i class="fas fa-check-circle icono-check me-2"></i> Papeleta de votación
+  </li>
+  <li class="list-group-item requisito-item">
+    <i class="fas fa-check-circle icono-check me-2"></i> Certificado de tipo de sangre (Cruz Roja)
+  </li>
+  <li class="list-group-item requisito-item">
+    <i class="fas fa-check-circle icono-check me-2"></i> Dos fotografías tamaño carnet
+  </li>
+  <li class="list-group-item requisito-item">
+    <i class="fas fa-check-circle icono-check me-2"></i> Certificado de estudios
+  </li>
+</ul>
       </div>
     </div>
   </section>
 
-<!-- MODAL DE INSCRIPCIÓN -->
+<!-- MODAL DE INSCRIPCIÓN MEJORADO -->
 <div class="modal fade" id="modalInscripcion" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content border-0 shadow-lg">
-      <div class="modal-header bg-rojo text-blanco">
-        <h5 class="modal-title">Formulario de Inscripción</h5>
+      
+      <!-- HEADER -->
+      <div class="modal-header bg-rojo-fondo text-white py-3 px-4">
+        <h5 class="modal-title mb-0">Inscripción al Curso</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-      <div class="modal-body">
+      
+      <!-- BODY -->
+      <div class="modal-body p-4">
         <form id="form-inscripcion-elegante">
           <input type="hidden" id="cursoSelect" name="curso">
 
           <div class="mb-3">
             <label for="nombre" class="form-label">Nombre completo</label>
-            <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" required>
+            <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" placeholder="Tu nombre aquí" required>
           </div>
 
           <div class="mb-3">
@@ -177,13 +188,13 @@
           </div>
 
           <div class="mb-3">
-            <label for="horario" class="form-label">¿Qué horario te gustaría elegir?</label>
+            <label for="horario" class="form-label">Horario preferido</label>
             <input type="text" class="form-control" id="horario" name="horario" placeholder="Ej: Lunes y miércoles a las 10am">
           </div>
 
-          <div class="mb-3">
-            <label for="infoextra" class="form-label">¿Qué más te gustaría saber sobre el curso?</label>
-            <textarea class="form-control" id="infoextra" name="infoextra" rows="2" placeholder="Preguntas adicionales, dudas, etc."></textarea>
+          <div class="mb-4">
+            <label for="infoextra" class="form-label">¿Qué más te gustaría saber?</label>
+            <textarea class="form-control" id="infoextra" name="infoextra" rows="3" placeholder="Dudas, comentarios…"></textarea>
           </div>
 
           <button type="submit" class="btn btn-rojo btn-lg w-100">Enviar por WhatsApp</button>
@@ -207,29 +218,10 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Preselección de curso en el modal
-    document.querySelectorAll('[data-bs-target="#modalInscripcion"]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('cursoSelect').value = btn.getAttribute('data-curso');
-      });
-    });
-    // Envío a WhatsApp con datos
-    document.getElementById('form-inscripcion-elegante')
-      .addEventListener('submit', function(e) {
-        e.preventDefault();
-        const nombre = encodeURIComponent(this.nombre.value.trim());
-        const telefono = encodeURIComponent(this.telefono.value.trim());
-        const curso = encodeURIComponent(this.cursoSelect.value);
-        const mensaje = encodeURIComponent(this.mensaje.value.trim());
-        const numero = '593992042546';
-        let texto = `*Inscripción Colorados Drive*%0A*Nombre:* ${nombre}%0A*Teléfono:* ${telefono}%0A*Curso:* ${curso}`;
-        if (mensaje) texto += `%0A*Observaciones:* ${mensaje}`;
-        window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
-        bootstrap.Modal.getInstance(document.getElementById('modalInscripcion')).hide();
-      });
-  </script>
+  + <!-- Bootstrap JS (Popper + Modal, etc.) -->
++ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
++ <!-- Tu código -->
++ <script src="js/main.js"></script>
+  
 </body>
 </html>

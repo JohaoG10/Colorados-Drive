@@ -1,3 +1,4 @@
+<!-- psicosensometrico.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,145 +7,105 @@
   <title>Colorados Drive • Examen Psicosensométrico</title>
 
   <!-- Bootstrap 5 CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="bg-gris-claro">
+
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg custom-navbar navbar-solid py-3 shadow-sm">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="img/logo.png" class="logo-img" alt="Logo Colorados Drive" />
-        <span class="ms-2 text-logo">Colorados Drive</span>
-      </a>
-      <button class="navbar-toggler border-0" type="button"
-              data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item mx-2"><a class="nav-link" href="index.html">Inicio</a></li>
-          <li class="nav-item mx-2"><a class="nav-link" href="cursos.html">Cursos</a></li>
-          <li class="nav-item mx-2">
-            <a class="nav-link active" href="psicosensometrico.html">Examen Psicosensométrico</a>
-          </li>
-          <li class="nav-item mx-2"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="img/logo.png" alt="Colorados Drive" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
+  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+  <li class="nav-item"><a class="nav-link" href="cursos.html">Cursos</a></li>
+  <li class="nav-item"><a class="nav-link" href="psicosensometrico.html">Psicosensométrico</a></li>
+  <li class="nav-item"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
+</ul>
+
     </div>
-  </nav>
-
-<!-- BANNER PRINCIPAL -->
-<section class="position-relative text-white psico-hero d-flex align-items-center justify-content-center">
-  <!-- Overlay oscuro -->
-  <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
-
-  <!-- Contenido (título y subtítulo) -->
-  <div class="text-center position-relative px-3">
-    <h1 class="display-4 fw-bold">Examen Psicosensométrico</h1>
-    <p class="lead">Evalúa tus capacidades psicomotrices para una conducción segura</p>
   </div>
-</section>
+</nav>
 
 
+  <!-- BANNER PRINCIPAL -->
+  <section class="position-relative text-white psico-hero d-flex align-items-center justify-content-center">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="text-center position-relative px-3">
+      <h1 class="display-4 fw-bold">Examen Psicosensométrico</h1>
+      <p class="lead">Evalúa tus capacidades psicomotrices para una conducción segura</p>
+    </div>
+  </section>
 
   <!-- ¿QUÉ INCLUYE? -->
   <section class="py-5 mt-5">
     <div class="container">
       <h2 class="text-center fw-bold text-rojo mb-5">¿Qué incluye el examen?</h2>
       <div class="row g-4">
-        <!-- Visión -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-eye"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-eye"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Prueba de Visión</h5>
-              <p class="text-muted small">
-                Agudeza visual, percepción de colores y campo visual.
-              </p>
+              <p class="text-muted small">Agudeza visual, percepción de colores y campo visual.</p>
             </div>
           </div>
         </div>
-        <!-- Audición -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-ear-listen"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-ear-listen"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Prueba de Audición</h5>
-              <p class="text-muted small">
-                Detección de sonidos en distintas frecuencias.
-              </p>
+              <p class="text-muted small">Detección de sonidos en distintas frecuencias.</p>
             </div>
           </div>
         </div>
-        <!-- Coordinación -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-hand-paper"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-hand-paper"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Coordinación</h5>
-              <p class="text-muted small">
-                Ejercicios ojo-mano y motricidad.
-              </p>
+              <p class="text-muted small">Ejercicios ojo-mano y motricidad.</p>
             </div>
           </div>
         </div>
-        <!-- Reacción -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-bolt"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-bolt"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Reacción</h5>
-              <p class="text-muted small">
-                Medición de rapidez ante estímulos.
-              </p>
+              <p class="text-muted small">Medición de rapidez ante estímulos.</p>
             </div>
           </div>
         </div>
-        <!-- Concentración -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-brain"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-brain"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Concentración</h5>
-              <p class="text-muted small">
-                Tareas que miden atención sostenida.
-              </p>
+              <p class="text-muted small">Tareas que miden atención sostenida.</p>
             </div>
           </div>
         </div>
-        <!-- Memoria -->
         <div class="col-md-4">
           <div class="psico-card h-100">
-            <div class="psico-card-header">
-              <i class="fas fa-memory"></i>
-            </div>
+            <div class="psico-card-header"><i class="fas fa-memory"></i></div>
             <div class="psico-card-body">
               <h5 class="fw-semibold">Memoria</h5>
-              <p class="text-muted small">
-                Evaluaciones de retención y recuerdo de estímulos.
-              </p>
+              <p class="text-muted small">Evaluaciones de retención y recuerdo de estímulos.</p>
             </div>
           </div>
         </div>
@@ -167,24 +128,20 @@
         <div class="card-body p-5">
           <form id="form-psico">
             <div class="form-floating mb-4">
-              <input type="text" class="form-control" id="psico-nombre" name="nombre"
-                     placeholder="Nombre completo" required>
+              <input type="text" class="form-control" id="psico-nombre" name="nombre" placeholder="Nombre completo" required>
               <label for="psico-nombre">Nombre completo</label>
             </div>
             <div class="form-floating mb-4">
-              <input type="tel" class="form-control" id="psico-telefono" name="telefono"
-                     placeholder="09XXXXXXXX" required>
+              <input type="tel" class="form-control" id="psico-telefono" name="telefono" placeholder="09XXXXXXXX" required>
               <label for="psico-telefono">Teléfono</label>
             </div>
             <div class="row g-3 mb-4">
               <div class="col-md-6 form-floating">
-                <input type="date" class="form-control" id="psico-fecha" name="fecha"
-                       placeholder="Fecha" required>
+                <input type="date" class="form-control" id="psico-fecha" name="fecha" placeholder="Fecha" required>
                 <label for="psico-fecha">Fecha deseada</label>
               </div>
               <div class="col-md-6 form-floating">
-                <input type="time" class="form-control" id="psico-hora" name="hora"
-                       placeholder="Hora" required>
+                <input type="time" class="form-control" id="psico-hora" name="hora" placeholder="Hora" required>
                 <label for="psico-hora">Hora deseada</label>
               </div>
             </div>
@@ -196,16 +153,12 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-rojo-fondo text-white py-3">
-    <div class="container text-center">
-      <small>&copy; 2025 Colorados Drive. Todos los derechos reservados.</small>
-    </div>
+  <footer class="bg-rojo-fondo text-white py-3 text-center">
+    <small>&copy; 2025 Colorados Drive. Todos los derechos reservados.</small>
   </footer>
 
   <!-- WHATSAPP -->
-  <a href="https://wa.me/593992042546" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/593992042546" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -213,17 +166,12 @@
   <script>
     document.getElementById('form-psico').addEventListener('submit', function(e) {
       e.preventDefault();
-      const nombre  = encodeURIComponent(this.nombre.value.trim());
-      const tel     = encodeURIComponent(this.telefono.value.trim());
-      const fecha   = encodeURIComponent(this.fecha.value);
-      const hora    = encodeURIComponent(this.hora.value);
-      const numero  = '593992042546';
-      const texto   =
-        `*Reserva Examen Psicosensométrico*%0A` +
-        `*Nombre:* ${nombre}%0A` +
-        `*Teléfono:* ${tel}%0A` +
-        `*Fecha:* ${fecha}%0A` +
-        `*Hora:* ${hora}`;
+      const nombre = encodeURIComponent(this.nombre.value.trim());
+      const tel = encodeURIComponent(this.telefono.value.trim());
+      const fecha = encodeURIComponent(this.fecha.value);
+      const hora = encodeURIComponent(this.hora.value);
+      const numero = '593992042546';
+      const texto = `*Reserva Examen Psicosensométrico*%0A*Nombre:* ${nombre}%0A*Teléfono:* ${tel}%0A*Fecha:* ${fecha}%0A*Hora:* ${hora}`;
       window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
     });
   </script>

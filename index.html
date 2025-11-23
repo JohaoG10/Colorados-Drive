@@ -1,193 +1,422 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Escuela de Conducción Colorados Drive – Sitio Oficial</title>
+<meta name="description" content="Cursos teórico y práctico de conducción en Santo Domingo. Inscripciones abiertas en Colorados Drive, tu autoescuela de confianza.">
+<link rel="canonical" href="https://coloradosdrive.com/inicio">
+
+    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Colorados Drive • Inicio</title>
 
-  <!-- Bootstrap 5 CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- AOS Animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-  <!-- FontAwesome para iconos -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+    <!-- Tus estilos personalizados -->
+  <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    :root {
+      --color-rojo: #c01c1c;
+      --color-rojo-fondo: #8b0000;
+      --color-gris-claro: #f8f9fa;
+      --color-blanco: #ffffff;
+    }
+    body { font-family: 'Poppins', sans-serif; margin:0; padding-top:70px; }
+    /* Loader */
+    #loader { position: fixed; top:0; left:0; width:100%; height:100%; background:var(--color-blanco); display:flex; align-items:center; justify-content:center; z-index:10000; }
+    .spinner { border:8px solid #f3f3f3; border-top:8px solid var(--color-rojo); border-radius:50%; width:60px; height:60px; animation:spin 1s linear infinite; }
+    @keyframes spin { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
+
+    /* Navbar underline */
+    .navbar .nav-link { position:relative; font-weight:600; color:var(--color-rojo); }
+    .navbar .nav-link::after { content:''; position:absolute; bottom:-4px; left:50%; width:0; height:3px; background:var(--color-rojo); transition:width .4s,left .4s; }
+    .navbar .nav-link:hover::after, .navbar .nav-link.active::after { width:100%; left:0; }
+    .navbar.navbar-transparent .nav-link { color:var(--color-blanco); }
+
+    /* Hero */
+    #hero { position:relative; background:url('img/hero-bg.jpg') center/cover no-repeat; height:100vh; display:flex; align-items:center; }
+    #hero .overlay { position:absolute; inset:0; background:rgba(0,0,0,0.6); }
+    #hero-content { position:relative; z-index:2; padding:0 1rem; color:var(--color-blanco); }
+    #hero-content h1 { font-size:3.5rem; font-weight:800; line-height:1.2; animation:fadeDown 1s ease-out forwards; opacity:0; margin-bottom:1rem; }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
+    #hero-content h1 span { color:var(--color-rojo); }
+    #hero-content p { font-size:1.25rem; margin-bottom:1.5rem; }
+    .btn-rojo { background:var(--color-rojo); border:2px solid var(--color-rojo); transition:transform .3s; }
+    .btn-rojo:hover { transform:scale(1.05); }
+
+    /* Global section padding */
+    section { padding:4rem 0; }
+
+    /* About carousel */
+    .about-swiper { width:100%; padding-bottom:2rem; }
+    .about-swiper .swiper-slide { width:300px; background:#fff; border-radius:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.1); }
+    .about-swiper .swiper-slide img { width:100%; height:200px; object-fit:cover; border-top-left-radius:1rem; border-top-right-radius:1rem; }
+    .about-swiper .card-body { padding:1rem; }
+    .about-swiper .card-text { font-size:0.95rem; color:#333; line-height:1.4; }
+
+    /* Vision/Mission */
+    #vision-mission .vm-card { border-radius:1rem; padding:2rem; background:var(--color-rojo-fondo); color:var(--color-blanco); box-shadow:0 8px 24px rgba(0,0,0,0.15); transition:transform .3s; }
+    #vision-mission .vm-card:hover { transform:translateY(-10px); }
+
+    /* Testimonials */
+    .section-testimonios { background:var(--color-rojo-fondo); }
+    .section-testimonios h2 { color:var(--color-blanco); margin-bottom:3rem; }
+    #carouselReviews .card { border-radius:1rem; transition:transform .3s; }
+    #carouselReviews .card:hover { transform:translateY(-8px); box-shadow:0 12px 24px rgba(0,0,0,0.2); }
+    #carouselReviews .card-text { color:#000; font-size:0.95rem; }
+
+    /* Footer */
+    footer { background:var(--color-rojo-fondo); color:var(--color-blanco); }
+
+    /* WhatsApp Float */
+    .whatsapp-float { position:fixed; bottom:1.5rem; right:1.5rem; background:#25d366; color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; }
+
+
+  </style>
 </head>
-
-<!-- CHAT BOX FLOTANTE REFINADO -->
-<div id="chat-widget">
-  <div id="chat-body">
-    <button id="chat-close" aria-label="Cerrar chat">×</button>
-    <div class="chat-message bot">
-      ¡Hola! Soy tu asistente de Colorados Drive. Selecciona o escribe tu pregunta.
-    </div>
-    <div id="quick-replies">
-      <button data-key="horarios">Horarios</button>
-      <button data-key="requisitos">Requisitos</button>
-      <button data-key="duracion_curso">Duración curso</button>
-      <button data-key="duracion_papeles">Dur. papeles</button>
-      <button data-key="duracion_clases">Dur. clases</button>
-      <button data-key="costos">Costos</button>
-    </div>
-    <div id="chat-log"></div>
-    <div id="chat-input-area">
-      <input type="text" id="chat-input" placeholder="Escribe tu mensaje…" />
-      <button id="chat-send">Enviar</button>
-    </div>
-  </div>
-  <button id="chat-toggle" aria-label="Abrir chat">💬</button>
-</div>
-
-
 <body>
-  <!-- NAVBAR TRANSPARENTE SOBRE HERO -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar navbar-transparent">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="img/logo.png" alt="Logo Colorados Drive" class="logo-hero" />
-      </a>
-      <button
-        class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarContentHero"
-        aria-controls="navbarContentHero"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarContentHero">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="index.html#quienes-somos">Quiénes Somos</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="cursos.html">Cursos</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="psicosensometrico.html">Examen Psicosensométrico</a>
-          </li>
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="contacto.html">Contáctanos</a>
-          </li>
-        </ul>
-      </div>
+  <h1>Escuela de Conducción Colorados Drive</h1>
+
+  <!-- Loader -->
+  <div id="loader"><div class="spinner"></div></div>
+
+<nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="img/logo.png" alt="Colorados Drive" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+      <ul class="navbar-nav">
+  <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+  <li class="nav-item"><a class="nav-link" href="cursos.html">Cursos</a></li>
+  <li class="nav-item"><a class="nav-link" href="psicosensometrico.html">Psicosensométrico</a></li>
+  <li class="nav-item"><a class="nav-link" href="contacto.html">Contáctanos</a></li>
+</ul>
+
     </div>
-  </nav>
-  <!-- FIN NAVBAR SOBRE HERO -->
-
-<!-- =========================
-     SECCIÓN HERO / INICIO (ALINEADO A LA IZQUIERDA)
-   ========================= -->
-<header id="inicio" class="position-relative vh-100 d-flex align-items-center">
-  <div class="hero-bg position-absolute top-0 start-0 w-100 h-100">
-    <img src="img/hero-bg.jpg" alt="Fondo Hero" class="w-100 h-100 object-fit-cover" />
-    <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
   </div>
+</nav>
 
-  <div class="container position-relative z-2">
-    <div class="row">
-      <div class="col-12 col-lg-8 text-white hero-content text-start">
-        <!-- Slogan en lugar del título -->
-       <p class="hero-slogan mx-auto text-center mb-4">
-  <em>Colorados Drive: tu camino seguro comienza aquí!</em>
-</p>
 
-        <p class="lead mb-4 hero-text">
-          En <strong>Colorados Drive</strong> te formamos como conductor experto. Ofrecemos cursos para licencias tipo A y B con instructores certificados, vehículos dual control y metodología 100% práctica. Además, disponemos de simuladores de última generación, refuerzo práctico y acompañamiento personalizado para que apruebes a la primera.
-        </p>
-        <a href="cursos.html" class="btn btn-lg btn-primary me-3">Ver Cursos</a>
-        <a href="contacto.html" class="btn btn-lg btn-outline-light">Contáctanos</a>
-      </div>
-
-      <div class="col-12 col-lg-8 text-start mt-5 hero-image">
-        <img src="img/car-hero.png" alt="Vehículo Colorados Drive" class="img-fluid img-car-hero" />
+<header id="hero" class="hero-banner">
+  <div class="overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        En <span class="text-rojo">Colorados Drive</span> convertimos <br> tu pasión
+        en <span class="text-blanco">habilidad y seguridad</span>
+      </h1>
+      <p class="hero-subtitle">
+        Si quieres ser un verdadero conductor, Colorados Drive es tu mejor opción!
+      </p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-rojo me-3">Conócenos</a>
+        <a href="contacto.html" class="btn btn-outline-light">Contáctanos</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- =========== FIN SECCIÓN HERO =========== -->
 
-<!-- =========================
-     SECCIÓN: QUIÉNES SOMOS + VISIÓN/MISIÓN
-   ========================= -->
-<section id="quienes-somos" class="py-5">
-  <div class="container quienessomos-container">
-    <!-- IZQUIERDA: Quiénes Somos -->
-    <div class="col-izq">
-      <h2>Quiénes Somos</h2>
-      <div id="carouselQuienesSomos" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/foto1.jpg" class="d-block w-100 rounded shadow" alt="Primera imagen">
-    </div>
-    <div class="carousel-item">
-      <img src="img/foto2.jpg" class="d-block w-100 rounded shadow" alt="Segunda imagen">
-    </div>
-    <div class="carousel-item">
-      <img src="img/foto3.jpg" class="d-block w-100 rounded shadow" alt="Tercera imagen">
-    </div>
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-     
-      <p class="fs-6 mb-3">
-        En <strong>Colorados Drive</strong> llevamos más de 15 años formando conductores
-        seguros y responsables. Nuestros instructores certificados cuentan con
-        experiencia nacional e internacional, y nuestros vehículos dual control
-        aseguran una formación práctica y eficaz.
-      </p>
-      <ul class="list-unstyled quienes-list mb-4">
-        <li><i class="fas fa-check-circle icono-check"></i> Instructores certificados</li>
-        <li><i class="fas fa-check-circle icono-check"></i> Aulas equipadas con equipos audiovisuales</li>
-        <li><i class="fas fa-check-circle icono-check"></i> Vehículos modernos dual control (autos y motos)</li>
-        <li><i class="fas fa-check-circle icono-check"></i> Alto porcentaje de aprobados en examen práctico</li>
-      </ul>
-      <a href="contacto.html" class="btn btn-primary btn-lg">Contáctanos</a>
-    </div>
+<!-- ====================================
+     Sección “Quiénes Somos” • Carrusel
+     ==================================== -->
+     <section id="about" class="bg-rojo-fondo position-relative py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4 text-white" data-aos="fade-up">Quiénes Somos</h2>
+    <p class="text-center mb-5 text-white" data-aos="fade-up" data-aos-delay="100">
+      Somos <strong>una empresa</strong> pionera en capacitar a futuros conductores de tipos A y B con excelentes instructores,
+      vehículos último modelo y con la tecnología más avanzada desde 2009.
+    </p>
 
-    <!-- DERECHA: Visión & Misión -->
-    <div class="col-der">
-      <h2>Visión &amp; Misión</h2>
-      <div class="vm-container">
-        <!-- Visión -->
-        <div class="vm-card">
-          <div class="vm-title">
-            <i class="fas fa-binoculars me-2"></i> Nuestra Visión
-          </div>
-          <div class="vm-text">
-            Ser reconocidos como la escuela de conducción de referencia en Ecuador,
-            caracterizada por nuestra excelencia formativa, innovación pedagógica y
-            compromiso con la seguridad vial. Aspiramos a transformar cada alumno en
-            un conductor responsable y consciente, contribuyendo a reducir la
-            siniestralidad y mejorando la movilidad en nuestras ciudades.
+    <div class="swiper about-swiper position-relative" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="img/foto1.jpg" class="card-img-top" alt="Instructores">
+            <div class="card-body">
+              <p class="card-text">Instructores certificados con experiencia nacional e internacional.</p>
+            </div>
           </div>
         </div>
-        <!-- Misión -->
-        <div class="vm-card">
-          <div class="vm-title">
-            <i class="fas fa-bullseye me-2"></i> Nuestra Misión
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="img/foto2.jpg" class="card-img-top" alt="Dual control">
+            <div class="card-body">
+              <p class="card-text">Vehículos dual control para una formación práctica y segura.</p>
+            </div>
           </div>
-          <div class="vm-text">
-            Ofrecer capacitación integral y accesible para licencias tipo A y B,
-            combinando metodología teórica de vanguardia con prácticas en pista urbana
-            y rural. Fomentamos la formación de conductores competentes, confiables y
-            con valores de movilidad responsable, a través de un seguimiento
-            personalizado y el uso de tecnología moderna.
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="img/foto3.jpg" class="card-img-top" alt="Simuladores">
+            <div class="card-body">
+              <p class="card-text">Simuladores de última generación con metodología 100% práctica.</p>
+            </div>
           </div>
+        </div>
+        <!-- Slide 4 (tu nueva) -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="img/foto4.jpg" class="card-img-top" alt="Tu Nuevo Punto">
+            <div class="card-body">
+              <p class="card-text">Enseñando con responsabilidad.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 5 (tu nueva) -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="img/foto5.jpg" class="card-img-top" alt="Otra Característica">
+            <div class="card-body">
+              <p class="card-text">Convirtiendo verdaderos conductores.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- flechas externas -->
+      <div class="swiper-button-prev about-prev nav-arrow"></div>
+      <div class="swiper-button-next about-next nav-arrow"></div>
+      <!-- bullets -->
+      <div class="swiper-pagination about-pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
+   new Swiper('.about-swiper', {
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    slidesPerView: 1,
+    spaceBetween: 20,
+    breakpoints: { 576: { slidesPerView: 2 }, 992: { slidesPerView: 3 } },
+    pagination: { el: '.about-pagination', clickable: true },
+    navigation: {
+      prevEl: '.about-prev.nav-arrow',
+      nextEl: '.about-next.nav-arrow'
+    }
+  });
+});
+});
+</script>
+
+
+
+  <section id="vision-mission">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Visión &amp; Misión</h2>
+      <div class="row gy-4">
+        <div class="col-md-6" data-aos="flip-left"><div class="vm-card"><h5><i class="fas fa-binoculars me-2"></i>Nuestra Visión</h5><p>Ser reconocidos como la escuela de conducción de referencia en Ecuador, caracterizada por nuestra excelencia formativa, innovación pedagógica y compromiso con la seguridad vial.</p></div></div>
+        <div class="col-md-6" data-aos="flip-right"><div class="vm-card"><h5><i class="fas fa-bullseye me-2"></i>Nuestra Misión</h5><p>Ofrecer capacitación integral y accesible para licencias tipo A y B, combinando metodología teórica de vanguardia con prácticas en pista urbana y rural.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- ==============================================
+     Sección “Lo que dicen nuestros clientes”
+     ============================================== -->
+<section id="testimonios" class="py-5 bg-rojo-fondo">
+  <div class="container">
+    <h2 class="text-center fw-bold text-white mb-4">
+      ¿Qué dicen los clientes de nuestra escuela de conducción?
+    </h2>
+
+    <div class="reviews-wrapper bg-white rounded-3 p-4 d-flex align-items-start mx-auto" style="max-width:1200px; position:relative;">
+      <!-- Parte estática -->
+      <div class="static-card border-end pe-4">
+        <img src="img/logo.png" alt="Logo Colorados Drive" class="static-logo mb-3">
+        <h5 class="fw-bold mb-2">
+          Escuela de Conducción<br>
+          Santo Domingo<br>
+          Colorados Drive
+        </h5>
+        <div class="static-stars mb-2"></div>
+        <p class="card-text mb-3">
+          <span class="static-count"></span> reseñas Google
+        </p>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJ_wCUiIpG1ZERiljOTx2n-Ig"
+           target="_blank"
+           class="btn btn-rojo">
+          Escribe una reseña
+        </a>
+      </div>
+
+      <!-- Carrusel dinámico -->
+      <div class="swiper reviews-swiper flex-grow-1 ps-4">
+        <div class="swiper-wrapper" id="reviews-wrapper">
+          <!-- Aquí inyecta tus slides vía JS -->
+        </div>
+        <div class="swiper-pagination reviews-pagination"></div>
+      </div>
+
+      <!-- Flechas blancas fuera de la card -->
+      <div class="reviews-prev">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="reviews-next">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let swiperReviews;
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function initReviews() {
+    const PLACE_ID = 'ChIJ_wCUiIpG1ZERiljOTx2n-Ig';
+    const service  = new google.maps.places.PlacesService(document.createElement('div'));
+
+    service.getDetails({
+      placeId: PLACE_ID,
+      fields: ['name','rating','user_ratings_total','reviews']
+    }, (place, status) => {
+      if (status !== google.maps.places.PlacesServiceStatus.OK) return;
+
+      // 1) estática
+      document.querySelector('.static-stars').textContent = '★'.repeat(Math.round(place.rating));
+      document.querySelector('.static-count').textContent = place.user_ratings_total;
+
+      // 2) reviews
+      const wrapper = document.getElementById('reviews-wrapper');
+      wrapper.innerHTML = '';
+      const seen = new Set();
+      const top  = (place.reviews || [])
+        .filter(r => r.rating >= 4)
+        .filter(r => {
+          if (seen.has(r.author_name)) return false;
+          seen.add(r.author_name);
+          return true;
+        })
+        .slice(0, 9);
+
+      shuffle(top).forEach(r => {
+        const slide  = document.createElement('div');
+        slide.className = 'swiper-slide';
+        const avatar = r.profile_photo_url
+          ? `<img src="${r.profile_photo_url}" class="review-avatar">`
+          : `<div class="review-avatar placeholder">${r.author_name.charAt(0)}</div>`;
+        slide.innerHTML = `
+          <div class="card h-100 review-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-2">
+                ${avatar}
+                <div class="ms-2">
+                  <h5 class="card-title mb-0">${r.author_name}</h5>
+                  <small class="text-muted">${new Date(r.time*1000).toLocaleDateString()}</small>
+                </div>
+                <img src="img/google-icon.png" class="google-icon ms-auto" alt="Google">
+              </div>
+              <div class="text-warning mb-2">${'★'.repeat(r.rating)}</div>
+              <p class="card-text">“${r.text.length>120? r.text.substr(0,120)+'…': r.text}”</p>
+            </div>
+          </div>`;
+        wrapper.appendChild(slide);
+      });
+
+      // 3) inicializar Swiper y guardar instancia
+      swiperReviews = new Swiper('.reviews-swiper', {
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+          576: { slidesPerView: 2 },
+          992: { slidesPerView: 3 }
+        },
+        pagination: { el: '.reviews-pagination', clickable: true }
+      });
+
+      // 4) flechas
+      document.querySelector('.reviews-prev')
+        .addEventListener('click', () => swiperReviews.slidePrev());
+      document.querySelector('.reviews-next')
+        // replicamos slidePrev() para que no se “tope”
+        .addEventListener('click', () => swiperReviews.slidePrev());
+    });
+  }
+</script>
+
+<!-- Google Maps + Places -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqjswrEX0GaMj2RoEZgIRrq4OSf2wH15A&libraries=places&language=es&callback=initReviews">
+</script>
+
+
+<!-- =========================
+   Mini Sección Contáctanos en Index
+   ========================= -->
+<section id="index-contacto" class="py-5">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <!-- Tarjeta de información -->
+      <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+        <div class="card contacto-card-info p-4">
+          <h3 class="fw-bold mb-3">Estamos para ayudarte</h3>
+          <p><i class="fas fa-map-marker-alt me-2"></i>
+            <strong>Dirección:</strong><br>
+            Padre German Maya y Pedro Vicente Maldonado, Santo Domingo, Ecuador
+          </p>
+          <p><i class="fas fa-phone-alt me-2"></i>
+            <strong>Teléfonos:</strong><br>
+            0992042546 / 0991156365
+          </p>
+          <p><i class="fas fa-envelope me-2"></i>
+            <strong>Email:</strong><br>
+            escuelacoloradosdrive@gmail.com
+          </p>
+          <div class="mt-4 social-links">
+            <a href="https://www.facebook.com/colorados.drive.37" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/colorados.drive/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/593992042546" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta de mapa -->
+      <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+        <div class="card contacto-card-map overflow-hidden">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7792483888074!2d-79.18115102412398!3d-0.25356773537120825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5468a889400ff%3A0x88f8a71d4fce588a!2sColorados%20Drive!5e0!3m2!1ses!2sec!4v1749355550586!5m2!1ses!2sec"
+            width="100%" height="100%" style="border:0; min-height:300px;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
@@ -195,198 +424,81 @@
 </section>
 
 
-  <!-- FIN QUIÉNES SOMOS -->
 
-  <!-- SECCIÓN: TESTIMONIOS -->
-  <section id="testimonios" class="py-5 section-testimonios">
+<!-- =========================
+   Fin Mini Sección Contáctanos en Index
+   ========================= -->
+
+
+  <footer class="py-3 text-center">
     <div class="container">
-      <h2 class="text-center fw-bold text-white mb-5">¿Qué dicen nuestros clientes?</h2>
-      <div id="carouselReviews" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row gx-4 gy-4">
-              <!-- Testimonio 1 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio1.jpg"
-                      alt="Alumno 1"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">Gabriela M.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “Una experiencia cómoda con la enseñanza de los instructores; las
-                      clases virtuales son dinámicas y la práctica en pista me dio mucha
-                      confianza…”
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonio 2 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio2.jpg"
-                      alt="Alumno 2"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">David G.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “El curso de motos es excelente: aprendí técnicas de seguridad que jamás
-                      imaginé. ¡Lo recomiendo 100%!”
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonio 3 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio3.jpg"
-                      alt="Alumno 3"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">Emiliano F.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “Las prácticas en pista y ciudad realmente me dieron confianza. Ahora
-                      manejo con seguridad gracias a Colorados Drive.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="row gx-4 gy-4">
-              <!-- Testimonio 4 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio4.jpg"
-                      alt="Alumno 4"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">Melanie G.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “En mi experiencia en la escuela de conducción quedé muy satisfecho con
-                      la enseñanza, ¡excelentes instructores!”
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonio 5 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio5.jpg"
-                      alt="Alumno 5"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">Joaquin F.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “Muy buena experiencia: instructores pacientes y clases interactivas.
-                      Recomendado.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <!-- Testimonio 6 -->
-              <div class="col-md-4">
-                <div class="card h-100 border-0 shadow-sm">
-                  <div class="card-body text-center">
-                    <img
-                      src="img/testimonio6.jpg"
-                      alt="Alumno 6"
-                      class="rounded-circle mb-3"
-                      width="80"
-                      height="80"
-                    />
-                    <h5 class="card-title fw-semibold">Yolanda L.</h5>
-                    <div class="text-warning mb-2">
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                    <p class="card-text small text-muted">
-                      “Yo hice el curso y fue buenísimo y rápido. Si buscas un curso en el
-                      que los profesores sean comprensivos, aquí lo encontrarás.”
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Controles del carrusel -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselReviews" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselReviews" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
-      </div>
-    </div>
-  </section>
-  <!-- FIN SECCIÓN TESTIMONIOS -->
-
-  <!-- FOOTER -->
-  <footer class="bg-rojo-fondo text-white py-3">
-    <div class="container text-center">
       <small>&copy; 2025 Colorados Drive. Todos los derechos reservados.</small>
     </div>
   </footer>
 
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/593992042546" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <a href="https://wa.me/593992042546" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-  <!-- Scripts -->
+    <!-- CHAT WIDGET -->
+  <div id="chat-widget" class="hidden">
+    <div id="chat-toggle">💬</div>
+    <div id="chat-body">
+      <div id="chat-header">
+        <span>¿Necesitas ayuda?</span>
+        <button id="chat-close">&times;</button>
+      </div>
+      <div id="chat-log" class="chat-log"></div>
+      <div id="quick-replies">
+        <button data-key="horarios">Horarios</button>
+        <button data-key="requisitos">Requisitos</button>
+        <button data-key="costos">Costos</button>
+        <button data-key="duracion_curso">Duración curso</button>
+      </div>
+      <div id="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." />
+        <button id="chat-send">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+ 
+  <!-- Dependencias JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Tu main.js (incluye la lógica del chat) -->
   <script src="js/main.js"></script>
+
+  <!-- Inicialización de AOS y Swiper para el hero/about -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Esconde loader
+      const loader = document.getElementById('loader');
+      if (loader) loader.style.display = 'none';
+
+      // AOS
+      if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
+
+      // Swiper para sección about
+      new Swiper('.about-swiper', {
+        slidesPerView: 3,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        breakpoints: {
+          0:   { slidesPerView: 1 },
+          576: { slidesPerView: 2 },
+          992: { slidesPerView: 3 }
+        }
+      });
+    });
+  </script>
+
+  <!-- Google Maps + Places (inicializa initReviews) -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqjswrEX0GaMj2RoEZgIRrq4OSf2wH15A&libraries=places&language=es&callback=initReviews">
+  </script>
 </body>
 </html>

@@ -3,35 +3,10 @@
    ========================================================= */
 :root {
   --color-rojo: #c01c1c;
-  --color-rojo-fondo: #8b0000; /* rojo oscuro para testimonios, banner y footer */
+  --color-rojo-fondo: #8b0000;
   --color-gris-claro: #f8f9fa;
   --color-blanco: #ffffff;
   --color-negro: #000000;
-}
-/* Hero: estilo del slogan */
-.hero-slogan {
-  font-size: 2.5rem;
-  color: var(--color-rojo);
-  font-weight: 700;
-  max-width: 700px;
-  margin-top: 1rem;
-}
-
-/* Hero-content ancho máximo */
-.hero-content {
-  max-width: 800px;
-}
-
-/* Ajustes responsivos */
-@media (max-width: 992px) {
-  .hero-slogan {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 576px) {
-  .hero-slogan {
-    font-size: 1.5rem;
-  }
 }
 
 /* =========================================================
@@ -42,673 +17,239 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 70px; /* Ajusta si cambias la altura real del navbar */
+  padding-top: 70px;
   background-color: var(--color-blanco);
 }
 
 /* =========================================================
-   3) Estilos del Navbar (mejorados)
+   Navbar fijo y uniforme en todas las páginas
    ========================================================= */
-
-/* Navbar transparente (solo en index.html) */
-.navbar-transparent {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-  padding: 1rem 1rem;
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-blanco-fondo) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+  padding: 0.75rem 1rem !important;
+  z-index: 9999;
 }
 
-/* Navbar sólido de fondo blanco + sombra */
-.navbar-solid {
-  background-color: var(--color-blanco) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
-  padding: 0.75rem 1rem;
+/* Ajuste para que el contenido no quede oculto bajo el navbar */
+body {
+  padding-top: 70px; /* ajusta si tu navbar cambia de altura */
 }
 
-/* Logo en el Hero (más grande) */
-.logo-hero {
-  width: 120px;
-  height: auto;
-  object-fit: contain;
+/* Logo más grande en la navbar */
+/* Aumentar tamaño de logo en el navbar */
+.custom-navbar .navbar-logo {
+  height: 90px !important;  /* ajusta este valor a tu gusto */
+  width: auto !important;    /* mantiene la proporción */
 }
 
-/* Logo pequeño para cursos/contacto */
-.logo-img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
 
-/* Texto “Colorados Drive” junto al logo (en cursos y contacto) */
-.text-logo {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: var(--color-rojo);
-}
-
-/* Ícono “hamburger” (invertido para verse blanco sobre fondo transparente) */
-.navbar-toggler-icon {
-  filter: invert(100%);
-}
-
-/* ===== Enlaces del menú: más peso, spacing y efecto degradado ===== */
+/* Enlaces */
 .custom-navbar .nav-link {
-  position: relative;                /* para la barra animada */
-  font-weight: 700;                  /* negrita */
-  letter-spacing: 0.5px;             /* separación entre letras */
-  padding: 0.5rem 1rem;              /* respiración interna */
+  color: var(--color-blanco) !important;
+  font-weight: 600;
+  position: relative;
+  padding: 0.5rem 1rem;
   transition: color 0.3s ease;
-  color: var(--color-rojo);
 }
 
-/* Subrayado degradado que crece al hover / active */
-.custom-navbar .nav-link::before {
+/* Subrayado blanco en hover / active */
+.custom-navbar .nav-link::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-rojo), var(--color-rojo-fondo));
-  border-radius: 2px;
+  height: 2px;
+  background: var(--color-blanco);
   transition: width 0.3s ease, left 0.3s ease;
 }
-.custom-navbar .nav-link:hover::before,
-.custom-navbar .nav-link.active::before {
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
   width: 100%;
   left: 0;
 }
 
-/* Color al pasar el ratón y al link activo */
+/* Hover / active mantienen blanco */
 .custom-navbar .nav-link:hover,
 .custom-navbar .nav-link.active {
-  color: var(--color-negro) !important;
+  color: var(--color-blanco) !important;
 }
 
-/* Enlaces sobre hero (transparente) mantienen blanco */
-.custom-navbar.navbar-transparent .nav-link {
-  color: var(--color-blanco);
-}
-.custom-navbar.navbar-transparent .nav-link:hover {
-  color: #ddd !important;
-}
-
-/* Responsivo: ajustes de padding para pantallas pequeñas */
-@media (max-width: 992px) {
-  .custom-navbar .nav-link {
-    padding: 0.5rem 0.75rem;
-  }
-}
-
-.custom-navbar.navbar-transparent {
-  background-color: transparent !important;
-  box-shadow: none !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-navbar.navbar-solid {
-  background-color: var(--color-blanco) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* Toggle hamburguesa en blanco */
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(100%) !important;
 }
 
 
+/* ================= Hero simplificado v2 ================= */
 
-/* =========================================================
-   4) Estilos del Hero (index.html) — ALINEADO A LA IZQUIERDA
-   ========================================================= */
-#inicio {
+
+
+/* Rojo para “Colorados Drive” */
+.hero-title .text-rojo {
+  color: var(--color-rojo);
+  font-weight: 700;
+}
+
+/* Blanco gordito para “habilidad y seguridad” */
+.hero-title .text-blanco {
+  color: #fff;
+  font-weight: 700;
+}
+
+
+.hero-banner {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  background: url('img/hero-bg.jpg') center/cover no-repeat;
+  min-height: 60vh;
   display: flex;
-  align-items: flex-start;      /* alinea arriba por defecto */
-  justify-content: flex-start;  /* asegura alineación a la izquierda */
-  padding-top: 4rem;            /* mueve la sección más abajo */
-  padding-left: 3rem;           /* mueve la sección más a la izquierda */
+  align-items: center;
 }
 
-.hero-bg {
+.hero-banner .overlay {
   position: absolute;
   inset: 0;
+  background: rgba(0,0,0,0.6);
   z-index: 1;
 }
 
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.hero-bg .overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-#inicio .container {
+/* Nuevo contenedor flex para centrar verticalmente */
+.hero-container {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 60vh;
 }
 
-.hero-content {
-  max-width: 700px;
-  margin-left: -30px;   /* Más a la izquierda */
-  margin-top: 80px;     /* Más hacia abajo */
+/* Máximo ancho del texto para que no ocupe toda la pantalla */
+.hero-text {
+  max-width: 70%;
 }
 
-
+/* Título principal */
 .hero-title {
-  font-size: 4rem;
-  line-height: 1.1;
+  color: #fff;
+  font-size: 2.2vw;
+  font-weight: 500;
+  line-height: 1.2;
   margin-bottom: 1rem;
 }
 
-.hero-text {
-  font-size: 1.25rem;
-  max-width: 650px;
+/* Subtítulo */
+.hero-subtitle {
+  color: #fff;
+  font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
 
-.btn-lg.btn-primary {
-  background-color: var(--color-rojo);
-  border-color: var(--color-rojo);
-}
-
-.btn-lg.btn-primary:hover {
-  background-color: var(--color-blanco);
+/* Resalta en rojo donde marques la clase */
+.text-rojo {
   color: var(--color-rojo);
 }
 
-.btn-lg.btn-outline-light {
-  border-color: var(--color-blanco);
-}
-
-.img-car-hero {
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
-
-/* Responsivo */
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 3rem;
-  }
-  .hero-text {
-    font-size: 1.1rem;
-  }
-}
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  .hero-text {
-    font-size: 1rem;
-  }
-  .btn-lg {
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-}
-
-
-
-/* =========================================================
-   SECCIÓN “Quiénes Somos” + Visión/Misión (dos columnas)
-   ========================================================= */
-
-.quienessomos-container {
+/* Botones juntos */
+.hero-buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10rem;        /* separación ampliada */
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 1rem;
 }
 
-/* Columnas fijas a 48% cada una */
-.col-izq,
-.col-der {
-  flex: 0 0 48%;
-}
-/* Títulos centrados en su columna */
-.quienessomos-container h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  color: var(--color-negro);
+/* Responsive: ajustar tamaño de fuente en móvil */
+@media (max-width: 768px) {
+  .hero-text { max-width: 90%; }
+  .hero-title { font-size: 8vw; }
 }
 
-/* Imagen de Quiénes Somos */
-.col-izq img {
-  width: 100%;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* Lista de puntos */
-.quienes-list li {
-  font-size: 0.95rem;
-  margin-bottom: 0.75rem;
-  color: #333;
-}
-
-/* Icono de check */
-.icono-check {
-  color: var(--color-rojo);
-  margin-right: 0.5rem;
-}
-
-/* Botón dentro de columna izquierda */
-.col-izq .btn {
-  margin-top: 1rem;
-}
-
-/* Contenedor VM */
-.vm-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Tarjetas VM */
-.vm-card {
-  background-color: #781c1c; /* rojo elegante más sobrio */
-  color: #fff;
-  border-left: 4px solid #fff;
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-.vm-card:hover {
-  transform: translateY(-4px);
-  background-color: #5c1515; /* tono más oscuro al hacer hover */
-}
-
-/* Título VM */
-.vm-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: #fff;
-  margin-bottom: 0.75rem;
-}
-
-/* Texto VM centrado con color blanco */
-.vm-text {
-  font-size: 1rem;
-  color: #fff;
-  line-height: 1.6;
-  text-align: center;
-}
-
-/* Responsive a columna única */
-@media (max-width: 991px) {
-  .quienessomos-container {
-    flex-direction: column;
-    gap: 2rem;
+/* ================= Hero animaciones ================= */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  .col-izq, .col-der {
-    flex: 1 0 auto;
-  }
-  /* Centrar títulos y textos en móvil */
-  .quienessomos-container h2,
-  .vm-text {
-    text-align: center;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* Hero simplificado con animación */
+.hero-banner .hero-title {
+  animation: fadeDown 1s ease-out forwards;
+}
+
+.hero-banner .hero-subtitle {
+  animation: fadeDown 1s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0; /* para que respete el delay */
+}
 
 
 /* =========================================================
-   6) Sección “Testimonios”
+   5) Examen Psicosensométrico (psicosensométrico.html)
    ========================================================= */
-.section-testimonios {
-  background-color: var(--color-rojo-fondo);
-  padding: 4rem 0;
-}
-.section-testimonios h2 {
-  color: var(--color-blanco);
-}
-#carouselReviews .carousel-inner .row {
-  justify-content: center;
-}
-#carouselReviews .card {
-  background-color: var(--color-blanco);
-  border-radius: 0.75rem;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-#carouselReviews .card-body {
-  padding: 1.5rem;
-}
-#carouselReviews .card-body img.rounded-circle {
-  object-fit: cover;
-}
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 1.5rem 1.5rem;
-  filter: invert(1);
-}
-
-/* =========================================================
-   7) Footer
-   ========================================================= */
-.bg-rojo-fondo {
-  background-color: var(--color-rojo-fondo) !important;
-}
-footer.text-white small,
-footer.text-white a {
-  color: var(--color-blanco) !important;
-  text-decoration: none;
-}
-
-/* =========================================================
-   8) Botón flotante de WhatsApp
-   ========================================================= */
-.whatsapp-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  background-color: #25d366;
-  color: #fff;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 2rem;
-  line-height: 60px;
-  z-index: 9999;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.whatsapp-float:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* =========================================================
-   9) Ajustes responsivos
-   ========================================================= */
-@media (max-width: 992px) {
-  #inicio h1 {
-    font-size: 2.5rem;
-  }
-  #inicio p.lead,
-  .hero-text {
-    font-size: 1rem;
-  }
-  .custom-navbar {
-    padding: 0.5rem 1rem;
-  }
-  .custom-navbar .nav-link {
-    margin-left: 0;
-    margin-bottom: 0.5rem;
-  }
-  #carouselReviews .col-md-4 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-@media (max-width: 576px) {
-  #inicio h1 {
-    font-size: 2rem;
-  }
-  #inicio p.lead,
-  .hero-text {
-    font-size: 0.9rem;
-  }
-  .btn-primary,
-  .btn-outline-light {
-    width: 100%;
-    margin-bottom: 0.75rem;
-  }
-  .logo-hero {
-    width: 100px;
-  }
-  #carouselReviews .col-md-4 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-/* =========================================================
-  10) Personalizaciones para cursos.html
-   ========================================================= */
-.section-banner-cursos {
-  background-color: var(--color-rojo-fondo);
-}
-.section-banner-cursos h1,
-.section-banner-cursos p {
-  color: var(--color-blanco);
-}
-
-.curso-card {
-  border: none;
-  border-radius: 1rem;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  position: relative;
-  background-color: var(--color-blanco);
-}
-.curso-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.curso-img,
-.curso-card .ratio {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  filter: brightness(0.9);
-  transition: filter 0.3s ease;
-}
-.curso-card .ratio:hover {
-  filter: brightness(1);
-}
-
-.price-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  padding: 0.5rem 0.75rem;
-  border-radius: 2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  z-index: 10;
-}
-.price-badge .iva {
-  font-size: 0.7rem;
-  vertical-align: super;
-}
-
-.curso-title {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  text-align: center;
-  padding: 0.75rem 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-.curso-card .card-body .card-text {
-  font-size: 0.95rem;
-  color: #333;
-}
-
-.btn-rojo {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  border: 2px solid var(--color-rojo);
-  box-shadow: 0 4px 15px rgba(192, 28, 28, 0.4);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-rojo:hover {
-  background-color: var(--color-blanco);
-  color: var(--color-rojo);
-  box-shadow: 0 6px 20px rgba(192, 28, 28, 0.6);
-}
-
-#cursos {
-  margin-top: 0; /* restaurado para no tapar el header */
-}
-
-@media (max-width: 992px) {
-  .curso-img,
-  .curso-card .ratio {
-    height: 160px;
-  }
-}
-@media (max-width: 576px) {
-  .curso-img,
-  .curso-card .ratio {
-    height: 140px;
-  }
-}
-
-/* Modal de inscripción */
-.modal-content {
-  border-radius: 1rem;
-}
-.modal-header {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-.modal-body {
-  padding: 2rem;
-}
-#form-inscripcion-elegante input[type="file"] {
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  padding: 0.3rem;
-  transition: border-color 0.3s ease;
-}
-#form-inscripcion-elegante input[type="file"]:focus {
-  outline: none;
-  border-color: var(--color-rojo);
-  box-shadow: 0 0 0 0.2rem rgba(192,28,28,0.25);
-}
-
-/* =========================================================
-   11) Requisitos
-   ========================================================= */
-.requisito-item .icono-check {
-  color: var(--color-rojo);
-  font-size: 1.1rem;
-}
-
-/* =========================================================
-   12) Personalizaciones para contacto.html
-/* ========================================================= */
-.bg-gris-claro {
-  background-color: var(--color-gris-claro);
-}
-
-.contacto-card {
-  background-color: #781c1c;        /* Fondo rojo elegante */
-  color: #fff;                      /* Texto blanco para contraste */
-  border-radius: 0.75rem;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contacto-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.contacto-card .card-title {
-  font-size: 1.5rem;
-  color: #fff;                      /* Título en blanco */
-}
-
-.icono-rojo {
-  color: #fff;                      /* Íconos blancos sobre rojo */
-  margin-right: 0.5rem;
-}
-
-.contacto-card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #fff;                      /* Asegura texto blanco */
-}
-
-.contacto-card .card-footer {
-  padding-top: 0.75rem;
-}
-
-.social-link {
-  font-size: 1.25rem;
-  color: #fff;                      /* Íconos de redes en blanco */
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-link:hover {
-  color: #ffb3b3;                   /* Tono claro al hacer hover */
-  transform: translateY(-3px);
-}
-
-/* ============================
-/* ============================
-/* =================================================
-   Ajustes z-index para banner Psicosensométrico
-   ================================================ */
-
 .psico-hero {
   height: 50vh;
   position: relative;
-  overflow: hidden;
-
-  /* Aquí se carga la imagen de fondo */
-  background: url('../img/psico-hero.jpg') center center / cover no-repeat;
+  background: url('../img/psico-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 .psico-hero .overlay {
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
 }
-
 .psico-hero > .text-center {
+  position: relative;
   z-index: 2;
+  color: var(--color-blanco);
+}
+.psico-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.psico-hero p.lead {
+  font-size: 1.1rem;
+  margin-bottom: 0;
 }
 
+/* Reserva banner */
+.bg-rojo-fondo.text-white.text-center {
+  background-color: var(--color-rojo-fondo) !important;
+  color: var(--color-blanco) !important;
+  padding: 3rem 0;
+}
+.bg-rojo-fondo.text-white.text-center h2,
+.bg-rojo-fondo.text-white.text-center p.lead {
+  color: var(--color-blanco) !important;
+  margin: 0;
+}
 
-/* ============================
-   Psicosensométrico: tarjetas
-   ============================ */
 .psico-card {
   background-color: #fff;
   border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .psico-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 .psico-card-header {
-  background-color: var(--color-rojo);
+  background: var(--color-rojo);
   color: var(--color-blanco);
   text-align: center;
   padding: 1rem 0;
-}
-.psico-card-header i {
-  font-size: 1.75rem;
 }
 .psico-card-body {
   padding: 1.5rem;
@@ -718,172 +259,875 @@ footer.text-white a {
   margin-bottom: 0.5rem;
   color: var(--color-negro);
 }
-.psico-card-body p {
-  margin-bottom: 0;
+
+/* =========================================================
+   6) Cursos (cursos.html)
+   ========================================================= */
+.section-banner-cursos {
+  background-color: var(--color-rojo-fondo);
+  padding: 3rem 0;
+  text-align: center;
 }
-/* Hero: slogan centrado sobre fondo blanco */
-.hero-slogan {
-  display: inline-block;            /* para que el fondo ajuste su ancho al texto */
+.section-banner-cursos h1,
+.section-banner-cursos p {
+  color: var(--color-blanco);
+}
+.curso-card {
   background-color: var(--color-blanco);
-  color: var(--color-rojo);
-  font-size: 2.5rem;
-  font-weight: 700;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  max-width: 90%;                   /* no desborde en móvil */
-  line-height: 1.2;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.curso-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+.curso-card .ratio {
+  height: 180px;
+  overflow: hidden;
+}
+.curso-card .ratio img,
+.curso-card .ratio video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.price-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  font-weight: 600;
+}
+.curso-title {
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+.curso-card .card-text {
+  padding: 0 1rem 1rem;
+  font-size: 0.95rem;
+}
+.curso-card .btn-rojo {
+  display: block;
+  margin: 0 auto 1rem;
+  background-color: var(--color-rojo);
+  color: var(--color-blanco);
+  border: none;
+  box-shadow: 0 4px 15px rgba(192,28,28,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.curso-card .btn-rojo:hover {
+  transform: translateY(-3px);
 }
 
-/* Responsivo: ajustar tamaño */
+/* Requisitos */
+.requisito-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+}
+.requisito-item .icono-check {
+  color: var(--color-rojo);
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   7) Contacto (contacto.html)
+   ========================================================= */
+#contacto {
+  padding: 4rem 0;
+  background-color: var(--color-gris-claro);
+}
+.contacto-card {
+  background-color: var(--color-rojo-fondo);
+  color: var(--color-blanco);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contacto-card:hover {
+  transform: translateY(-6px);
+}
+.contacto-card .card-body {
+  padding: 2rem;
+}
+.contacto-card .card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.contacto-card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.icono-rojo {
+  color: var(--color-blanco);
+  margin-right: 0.5rem;
+}
+.card-footer .social-link {
+  color: var(--color-blanco);
+  margin: 0 0.5rem;
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+.card-footer .social-link:hover {
+  transform: translateY(-3px);
+  color: #ffb3b3;
+}
+.contacto-card iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: none;
+}
+
+/* =========================================================
+   8) Footer y WhatsApp flotante
+   ========================================================= */
+footer {
+  background-color: var(--color-rojo-fondo);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: #25d366;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  z-index: 10001; /* <- asegurar que esté por encima del overlay */
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   9) Responsive
+   ========================================================= */
 @media (max-width: 992px) {
-  .hero-slogan {
-    font-size: 2rem;
+  .curso-card .ratio {
+    height: 160px;
+  }
+  .contacto-card .card-body {
+    padding: 1.5rem;
+  }
+  .psico-hero h1 {
+    font-size: 2.5rem;
+  }
+  .psico-hero p.lead {
+    font-size: 1rem;
   }
 }
 @media (max-width: 576px) {
-  .hero-slogan {
-    font-size: 1.5rem;
-    padding: 0.4rem 0.8rem;
+  .curso-card .ratio {
+    height: 140px;
+  }
+  .social-link {
+    margin: 0 0.25rem;
+  }
+  .psico-hero h1 {
+    font-size: 2rem;
+  }
+  .psico-hero p.lead {
+    font-size: 0.9rem;
   }
 }
-/* =========================
-   CHAT WIDGET ELEGANTE CON SCROLL FUNCIONAL
-   ========================= */
-#chat-widget {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 90px;
-  width: 320px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+/* Navbar rojo con enlaces blancos */
+.bg-rojo-fondo {
+  --bs-bg-opacity: 1;
+  background-color: rgba(140,0,0,var(--bs-bg-opacity)) !important;
 }
 
-/* BOTÓN FLOTANTE */
-#chat-toggle {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  border: 2px solid #000;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  transition: transform 0.2s ease;
-}
-#chat-toggle:hover {
-  transform: scale(1.1);
+.navbar-static {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* CUERPO DEL WIDGET */
-#chat-body {
-  display: none;
-  flex-direction: column;
-  width: 100%;
-  height: 500px;
-  background-color: var(--color-blanco);
-  border: 3px solid #000;
-  box-shadow:
-    0 0 0 3px var(--color-rojo),
-    0 8px 24px rgba(0,0,0,0.2);
-
-  overflow-y: auto;             /* Scroll directo en el body */
-  overscroll-behavior: contain;
-}
-#chat-body.active {
-  display: flex;
+/* Logo ajustado */
+.navbar-logo {
+  height: 50px;
+  object-fit: contain;
 }
 
-/* BOTÓN CERRAR */
-#chat-close {
-  align-self: flex-end;
-  background: none;
+/* Toggle (hamburguesa) en blanco */
+.navbar-toggler {
   border: none;
-  font-size: 1.2rem;
-  color: #666;
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  transition: color 0.2s ease;
 }
-#chat-close:hover {
-  color: #000;
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-/* HISTORIAL DE MENSAJES */
-#chat-log {
-  padding: 0.5rem 1rem;
+/* Enlaces blancos */
+.navbar-static .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  margin: 0 0.75rem;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.3s ease;
+}
+.navbar-static .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
   background: #fff;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.navbar-static .nav-link:hover,
+.navbar-static .nav-link.active {
+  color: #fff !important;
+}
+.navbar-static .nav-link:hover::after,
+.navbar-static .nav-link.active::after {
+  width: 100%;
+  left: 0;
 }
 
-/* QUICK REPLIES */
-#quick-replies {
-  flex-shrink: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0 1rem 0.5rem;
+/* Responsive: menú en columna */
+@media (max-width: 992px) {
+  .navbar-static .navbar-nav {
+    flex-direction: column;
+    background-color: rgba(140,0,0,1);
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .navbar-static .nav-link {
+    margin: 0.5rem 0;
+  }
 }
-#quick-replies button {
-  background-color: var(--color-rojo);
+
+/* ——— SOLO Quiénes Somos: fondo rojo oscuro y cards blancas ——— */
+#about {
+  background-color: var(--color-rojo-fondo) !important;
+  color: var(--color-blanco) !important;
+  padding: 20rem 0;
+}
+
+#about h2,
+#about p {
+  color: var(--color-blanco) !important;
+}
+
+/* Cards: fondo blanco, sombra y efecto hover */
+#about .swiper-slide .card {
+  background-color: var(--color-blanco) !important;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#about .swiper-slide .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+#about .swiper-slide .card-text {
+  color: #333 !important;
+}
+/* ————— Mini Sección Contáctanos en Index ————— */
+#index-contacto {
+  background-color: var(--color-gris-claro);
+}
+
+#index-contacto .contacto-card-info {
+  background-color: var(--color-rojo-fondo);
   color: var(--color-blanco);
-  border: 2px solid #000;
-  border-radius: 6px;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
-#quick-replies button:hover {
-  background-color: #a01818;
+#index-contacto .contacto-card-info:hover {
+  transform: translateY(-4px);
+}
+#index-contacto .contacto-card-info h3 {
+  color: var(--color-blanco);
+}
+#index-contacto .contacto-card-info p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+#index-contacto .social-links a {
+  color: var(--color-blanco);
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+#index-contacto .social-links a:hover {
+  color: #ffdede;
   transform: translateY(-2px);
 }
 
-/* ÁREA DE INPUT */
-#chat-input-area {
-  flex-shrink: 0;
+#index-contacto .contacto-card-map {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+#index-contacto .contacto-card-map:hover {
+  transform: translateY(-4px);
+}
+
+/* AOS animations para este bloque */
+[data-aos="fade-right"] { opacity: 0; transform: translateX(-20px); }
+[data-aos="fade-left"]  { opacity: 0; transform: translateX(20px); }
+[data-aos].aos-animate  { opacity: 1; transform: translateX(0); transition: all 0.6s ease-out; }
+
+/* ——— Estilos para el Modal de Inscripción ——— */
+.modal-content {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-header .modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-body {
+  background-color: var(--color-blanco);
+}
+
+.modal-body .form-label {
+  font-weight: 600;
+  color: #444;
+}
+
+.form-control {
+  border-radius: 0.6rem;
+  padding: 0.75rem 1rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.form-control:focus {
+  border-color: var(--color-rojo);
+  box-shadow: 0 0 0 0.2rem rgba(192,28,28,0.25);
+}
+
+.btn-rojo {
+  background-color: var(--color-rojo) !important;
+  border: none !important;
+  border-radius: 0.6rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-rojo:hover {
+  background-color: #a51717 !important;
+  transform: translateY(-2px);
+}
+/* ========== CHAT WIDGET RENOVADO ========== */
+#chat-widget.hidden #chat-body {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+#chat-widget:not(.hidden) #chat-body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* contenedor del widget */
+#chat-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 100px;
+  font-family: 'Segoe UI', sans-serif;
+  z-index: 9999;
   display: flex;
-  border-top: 1px solid #eee;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+/* botón flotante */
+#chat-toggle {
+  background-color: var(--color-rojo);
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  font-size: 24px;
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* cuerpo del chat */
+#chat-body {
+  width: 320px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  overflow: hidden;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+#chat-header {
+  background: var(--color-rojo-fondo);
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#chat-header button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* log de mensajes */
+.chat-log {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f5f5f5;
+}
+.chat-message {
+  margin: 6px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 80%;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: messageIn 0.3s forwards ease-out;
+}
+.chat-message.user {
+  background: var(--color-rojo);
+  color: #fff;
+  align-self: flex-end;
+}
+.chat-message.bot {
+  background: #eee;
+  color: #333;
+  align-self: flex-start;
+}
+@keyframes messageIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* respuestas rápidas */
+#quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #fafafa;
+}
+#quick-replies button {
+  background: #eee;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s;
+}
+#quick-replies button:hover {
+  background: var(--color-rojo);
+  color: #fff;
+}
+
+/* input y botón enviar */
+#chat-input-area {
+  display: flex;
+  border-top: 1px solid #ddd;
 }
 #chat-input {
   flex: 1;
   border: none;
-  padding: 0.75rem 1rem;
-  font-size: 0.9rem;
-}
-#chat-input:focus {
+  padding: 10px;
+  font-size: 14px;
   outline: none;
 }
 #chat-send {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  border: 2px solid #000;
-  padding: 0 1rem;
+  background: var(--color-rojo);
+  border: none;
+  color: #fff;
+  padding: 0 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-size: 18px;
+  transition: background 0.2s ease;
 }
 #chat-send:hover {
-  background-color: #a01818;
-  transform: translateY(-2px);
+  background: #a51717;
 }
 
-/* MENSAJES */
-.chat-message {
-  margin: 0.5rem 1rem;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
+/* =========================================================
+   Scroll interno para el chat widget
+   ========================================================= */
+#chat-body {
+  /* fija la altura disponible para el chat */
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-log {
+  flex: 1;               /* ocupa todo el espacio restante dentro de #chat-body */
+  overflow-y: auto;      /* activa el scroll vertical */
+  padding: 12px;         /* algo de espacio interior para los mensajes */
+}
+
+/* reajusta el área de input si quieres que siempre quepa al final */
+#chat-input-area {
+  flex-shrink: 0;
+}
+
+
+
+/* =========================================================
+   Testimonios estilo Colorados Drive – Flechas externas v9
+   ========================================================= */
+
+/* Fondo rojo de la sección */
+.bg-rojo-fondo {
+  --bs-bg-opacity: 1;
+  background-color: rgba(140, 0, 0, var(--bs-bg-opacity)) !important;
+  padding: 4rem 0; /* espacio extra para las flechas */
+  position: relative; /* para posicionar flechas absolutas */
+}
+
+/* Título blanco */
+#testimonios h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Contenedor principal blanco con bordes redondeados */
+.reviews-wrapper {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* — Parte estática (logo empresa + datos) — */
+.static-card {
+  flex: 0 0 260px;
+  border-right: 1px solid rgba(0,0,0,0.1);
+  padding-right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.static-logo {
+  height: 100px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+.static-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+.static-stars {
+  font-size: 1.25rem;
+  color: gold;
+  margin-bottom: 0.5rem;
+}
+.static-count {
+  font-size: 0.875rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* — Botón “Escribe una reseña” — */
+.btn-review,
+.btn-rojo {
+  background: var(--color-rojo) !important;
+  color: #fff !important;
+  border: 2px solid var(--color-rojo) !important;
+  padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  line-height: 1.4;
-  max-width: 80%;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background 0.2s;
 }
-.chat-message.bot {
-  background-color: #f1f1f1;
-  align-self: flex-start;
+.btn-review:hover,
+.btn-rojo:hover {
+  background: #a51717 !important;
 }
-.chat-message.user {
-  background-color: var(--color-rojo);
-  color: var(--color-blanco);
-  align-self: flex-end;
+
+/* — Carrusel de reseñas — */
+.reviews-swiper {
+  flex: 1;
+  position: relative;
+}
+.reviews-swiper .swiper-wrapper {
+  align-items: center;
+}
+.reviews-swiper .swiper-slide {
+  display: flex !important;
+  justify-content: center;
+}
+.reviews-swiper .card {
+  width: 100%;
+  max-width: 280px;
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding-top: 2.5rem;
+  position: relative;
+}
+.reviews-swiper .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+.reviews-swiper .card-body {
+   flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.reviews-swiper .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+.reviews-swiper .card-date {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+.reviews-swiper .text-warning {
+  font-size: 1rem;
+  color: gold;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.reviews-swiper .card-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+.reviews-swiper small {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* — Icono de Google en cada tarjeta — */
+.reviews-swiper .google-icon {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* — Oculta badges innecesarios — */
+.reviews-swiper .verified-icon,
+.reviews-swiper .fa-check-circle,
+.reviews-swiper .verified-badge {
+  display: none !important;
+}
+
+/* ——————————————————————————————————————
+   Navbar blanco + enlaces rojos (override)
+   —————————————————————————————————————— */
+.custom-navbar {
+  background-color: #fff !important;
+}
+
+.custom-navbar .nav-link {
+  color: var(--color-rojo) !important;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: var(--color-rojo) !important;
+}
+
+.custom-navbar .nav-link::after {
+  background: var(--color-rojo) !important;
+}
+
+/* Hacer la hamburguesa roja */
+.custom-navbar .navbar-toggler-icon {
+  filter: invert(23%) sepia(67%) saturate(6801%) hue-rotate(351deg) brightness(98%) contrast(121%) !important;
+}
+/* — uniformiza el tamaño de las slides al ancho de la tarjeta — */
+.reviews-swiper .swiper-slide {
+  width: auto !important;      /* respeta el ancho de la card */
+  display: flex !important;
+  justify-content: center;
+}
+
+/* — fija ancho/alto de cada tarjeta y cuerpo flexible — */
+.review-card {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.review-card .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* empuja el texto para que todas las cards terminen a la misma altura */
+.review-text {
+  margin-top: auto;
+}
+
+/* — avatares más pequeños y redondos — */
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* — icono de Google más discreto — */
+.google-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+
+/* Flechas blancas fuera de la card principal, centradas verticalmente */
+.reviews-wrapper {
+  position: relative; /* tu wrapper principal debe seguir así */
+}
+
+/* Estilo común */
+.reviews-prev,
+.reviews-next {
+  position: absolute;
+  top: 50%;                    /* centrar verticalmente */
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  z-index: 30;
+}
+
+/* Flecha izquierda */
+.reviews-prev {
+  left: -3.25rem; /* fuera, ajusta si lo necesitas */
+}
+
+/* Flecha derecha */
+.reviews-next {
+  right: -3.25rem;
+}
+
+/* Iconos en blanco */
+.reviews-prev i,
+.reviews-next i {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Flecha blanco quienes somos */
+
+/* Flechas blancas sencillas para “Quiénes Somos” */
+#about .nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--color-rojo);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+#about .about-prev.nav-arrow { left: 0.5rem; }
+#about .about-next.nav-arrow { right: 0.5rem; }
+/* Ocultar iconos nativos de Swiper */
+#about .swiper-button-prev::after,
+#about .swiper-button-next::after {
+  content: none;
+}
+/* Insertar iconos FontAwesome */
+#about .about-prev.nav-arrow::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f053"; /* fa-chevron-left */
+  font-weight: 900;
+}
+#about .about-next.nav-arrow::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f054"; /* fa-chevron-right */
+  font-weight: 900;
+}
+/* Paginación bullets en blanco */
+#about .about-pagination {
+  bottom: 1rem;
+}
+#about .about-pagination .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.6;
+}
+#about .about-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
 }
